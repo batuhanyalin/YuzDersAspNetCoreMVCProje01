@@ -1,0 +1,48 @@
+﻿@model YuzDersAspNetCoreMVCProje.Models.Personel
+@{
+    ViewData["Title"] = "Guncelle";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+@using (Html.BeginForm("GuncelleYap", "Personel", FormMethod.Post))
+{
+    <div class="container">
+        <div class="row">
+            <div class="col col-md-8">
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <td>@Html.TextBoxFor(m => m.PersonelID, new { @class = "form-control" })</td>
+                        </tr>
+                        <tr>
+                            <th>Ad</th>
+                            <td>@Html.TextBoxFor(m => m.PersonelAd, new { @class = "form-control" })</td>
+                        </tr>
+                        <tr>
+                            <th>Soyad</th>
+                            <td>@Html.TextBoxFor(m => m.PersonelSoyad, new { @class = "form-control" })</td>
+                        </tr>
+                        <tr>
+                            <th>Şehir</th>
+                            <td>@Html.TextBoxFor(m => m.PersonelSehir, new { @class = "form-control" })</td>
+                        </tr>
+                        <tr>
+                            <th>Birim</th>
+                            <td>@Html.DropDownListFor(m => m.Birim.BirimID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })</td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-md-4">
+                <button id="btn1" class="btn btn-warning">Güncelle</button>
+            </div>
+        </div>
+        <script>
+            $('#btn1').click(function () {
+                alert('Personel güncelleme işlemi başarıyla yapıldı.');
+            });
+        </script>
+    </div>
+}

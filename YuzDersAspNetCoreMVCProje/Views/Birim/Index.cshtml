@@ -1,0 +1,44 @@
+﻿@model List<YuzDersAspNetCoreMVCProje.Models.Birim>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col col-md-6">
+            <a class="btn btn-primary" href="/Birim/Ekle">Yeni Birim Ekle</a>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col col-md-8">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Birim ID</th>
+                        <th>Birim</th>
+                        <th>İşlemler</th>
+                        <th>Detaylar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var x in Model)
+                    {
+                        <tr>
+                            <td>@x.BirimID</td>
+                            <td>@x.BirimAd</td>
+                            <td>
+                                <a class="btn btn-success" href="/Birim/Guncelle/@x.BirimID">Güncelle</a>
+                                @Html.ActionLink("Sil", "Sil", "Birim", new { id = @x.BirimID }, new { @class = "btn btn-danger", onclick = "return confirm('Personeli silmek istediğinize emin misiniz?')" })
+                            </td>
+                            <td>
+                                <a href="/Birim/BirimDetay/@x.BirimID" class="btn btn-light">Detaylar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

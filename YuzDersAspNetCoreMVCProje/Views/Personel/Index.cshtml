@@ -1,0 +1,47 @@
+﻿@using YuzDersAspNetCoreMVCProje.Models;
+@model List<Personel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col col-md-6">
+            <a class="btn btn-primary" href="/Personel/Ekle">Yeni Personel Ekle</a>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col col-md-8">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Personel ID</th>
+                        <th>Adı</th>
+                        <th>Soyadı</th>
+                        <th>Şehir</th>
+                        <th>Birim</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var x in Model)
+                    {
+                        <tr>
+                            <td>@x.PersonelID</td>
+                            <td>@x.PersonelAd</td>
+                            <td>@x.PersonelSoyad</td>
+                            <td>@x.PersonelSehir</td>
+                            <td>@x.Birim.BirimAd</td>
+                            <td>
+                                <a class="btn btn-success" href="/Personel/Guncelle/@x.PersonelID">Güncelle</a>
+                                @Html.ActionLink("Sil", "Sil", "Personel", new { id = x.PersonelID }, new { @class = "btn btn-danger", onclick = "return confirm('Personeli silmek istediğinize emin misiniz?')" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

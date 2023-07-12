@@ -1,0 +1,28 @@
+﻿@model YuzDersAspNetCoreMVCProje.Models.Birim
+@{
+    ViewData["Title"] = "Ekle";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div class="container">
+        <div class="row">
+            <div class="col col-md-8">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Birim Adı</th>
+                            <td>@Html.TextBoxFor(m => m.BirimAd, new { @class = "form-control" })</td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-md-6">
+                <button style="width:200px" class="btn btn-info">Kaydet</button>
+            </div>
+        </div>
+    </div>
+</form>
+

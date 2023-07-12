@@ -1,0 +1,39 @@
+﻿@model List<YuzDersAspNetCoreMVCProje.Models.Personel>
+@{
+    ViewData["Title"] = "BirimDetay";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col col-md-6">
+            <h2>@ViewBag.brm</h2>
+        </div>
+        <br />
+    </div>
+    <div class="row">
+        <div class="col col-md-8">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Personel ID</th>
+                        <th>Ad</th>
+                        <th>Soyad</th>
+                        <th>Şehir</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var x in Model)
+                    {
+                        <tr>
+                            <td>@x.PersonelID</td>
+                            <td>@x.PersonelAd</td>
+                            <td>@x.PersonelSoyad</td>
+                            <td>@x.PersonelSehir</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
